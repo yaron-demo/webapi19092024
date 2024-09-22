@@ -6,7 +6,7 @@ var productSchema=mongoose.Schema({
     pid:Number,
     pname:String,
     price:Number
-});
+}); //
 module.exports=mongoose.model('product',productSchema);// יצירת החיבור לטבלת/ אוסף המוצרים
 
 
