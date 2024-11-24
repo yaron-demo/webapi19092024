@@ -1,14 +1,10 @@
-const DbConn=require('../config/MySqlDb');// חיבור לקונקשן של בסיס הנתונים מסוג mysql
+const productModel=require('../models/product');
 module.exports={
     getAllProducts:(req,res)=>{
-        let Sql="Select * from t_products";// req.email
-        DbConn.query(Sql,function(error,results,fields){
-            console.log(req.session);
-            if(error)
-                return res.send(error);
-            return res.send("results.length");
+        productModel.find().then((prods)=>{
+            console.log(prods);
+            return res.status(200).json(prods);
         });
-       
         
     },
     getProductById:(req,res)=>{

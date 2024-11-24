@@ -5,8 +5,8 @@ module.exports={
         DbConn.query(Sql,function(error,results,fields){
             console.log(req.session);
             if(error)
-                return res.send(error);
-            return res.send("results.length");
+                return res.status(500).json(error);
+            return res.status(200).json(results);
         });
        
         
